@@ -1,0 +1,128 @@
+<!-- apps/mytheme/mytheme/templates/pages/login.html -->
+{% extends "templates/web.html" %}
+{% set full_width = 1 %}
+
+{% block style %}
+<style>
+  html,
+  body,
+  .web-page {
+    height: 100%;
+    margin: 0;
+  }
+
+  header.navbar,
+  .navbar,
+  footer,
+  .web-footer,
+  .page-header {
+    display: none !important;
+  }
+
+  .page-content,
+  .page-container,
+  .container {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Top-left brand logo */
+  .brand-logo-wrapper {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    padding: 6px 12px;
+    border-radius: 10px;
+    margin-left: 60px;
+  }
+
+  .brand-logo-wrapper img {
+    height: 48px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+
+  .custom-login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100dvh;
+    /* dynamic viewport */
+    min-height: 100vh;
+    /* fallback */
+    background: #ca38b7 center/cover no-repeat;
+    margin: 0;
+  }
+
+  .login-card {
+    max-width: 400px;
+    width: 100%;
+    padding: 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .login-card .page-card-head {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .login-logo {
+    max-width: 150px;
+    margin-bottom: 20px;
+  }
+
+  .form-control {
+    height: 48px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    background: #3b82f6;
+    border-color: #3b82f6;
+  }
+
+  .btn-primary:hover {
+    background: #2563eb;
+    border-color: #2563eb;
+  }
+
+  .forgot-password-link {
+    font-size: 0.9em;
+  }
+</style>
+{% endblock %}
+
+{% block page_content %}
+<div class="brand-logo-wrapper">
+  <img src="/assets/whitelabel/images/whitelabel_logo.png" alt="Nexo4 Erp Logo" loading="lazy">
+
+</div>
+<div class="custom-login-container">
+  <main class="login-card">
+    <!-- Frappe injects the actual form fields here -->
+    {{ form_body }}
+
+    <!-- Frappe injects social login buttons (Google, etc.) here -->
+    {{ social_login }}
+  </main>
+</div>
+{% endblock %}
