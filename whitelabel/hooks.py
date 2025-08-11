@@ -52,7 +52,7 @@ web_include_css = "/assets/whitelabel/css/whitelabel_web.css"
 # get_website_user_home_page = "whitelabel.utils.get_home_page"
 
 website_context = {
-	"favicon": app_logo or "/assets/whitelabel/images/whitelabel_logo.png",
+	"favicon": app_logo or "/assets/whitelabel/images/logo.png",
 	"splash_image": app_logo or "/assets/whitelabel/images/whitelabel_logo.png"
 }
 
