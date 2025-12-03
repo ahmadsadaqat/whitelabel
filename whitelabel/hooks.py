@@ -20,8 +20,9 @@ app_logo_url = '/assets/whitelabel/images/whitelabel_logo.png'
 # include js, css files in header of desk.html
 app_include_css = [
 	"/assets/whitelabel/css/whitelabel_app.css",
-
 ]
+
+
 app_include_js = "/assets/whitelabel/js/whitelabel.js"
 
 # include js, css files in header of web template
