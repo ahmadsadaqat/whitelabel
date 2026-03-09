@@ -4,270 +4,166 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NEXO 4 ERP | Vital Petroleum</title>
+  <title>NEXO 4 ERP - Lal Khan Oil Mills Login</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
 
   <style>
-    /* -------------------------------- */
-    /*          GLOBAL STYLES           */
-    /* -------------------------------- */
-    * {
+    /* ================================ */
+    /*        RESET & BASE STYLES       */
+    /* ================================ */
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html,
     body {
-      font-family: "Plus Jakarta Sans", sans-serif;
-      background: #0f172a;
-      color: white;
-      overflow-x: hidden;
-      overflow-y: auto;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    /* Utility */
-    .flex {
-      display: flex;
-    }
-
-    .center {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .col {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    /* Smooth fade-in for page */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(10px);
-      animation: fadeIn 1s forwards;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* -------------------------------- */
-    /*            CANVAS BG             */
-    /* -------------------------------- */
-    .bg-wrapper {
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(to bottom right, #0f172a, #0b1320, #030712);
-    }
-
-    canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
       height: 100%;
-      pointer-events: none;
-    }
-
-    /* -------------------------------- */
-    /*     ORBS (teal + white glow)     */
-    /* -------------------------------- */
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(100px);
-      opacity: 0;
-      transition: 1s;
-    }
-
-    .orb.show {
-      opacity: 1;
-    }
-
-    .orb.one {
-      top: -10%;
-      left: -10%;
-      width: 1000px;
-      height: 1000px;
-      background: rgba(6, 182, 212, 0.15);
-    }
-
-    .orb.two {
-      bottom: -10%;
-      right: -10%;
-      width: 500px;
-      height: 500px;
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    /* -------------------------------- */
-    /*       MAIN LOGIN WRAPPER         */
-    /* -------------------------------- */
-    .login-card {
-      position: relative;
-      z-index: 10;
-      width: 100%;
-      max-width: 750px;
-      min-height: auto;
-      background: rgba(30, 41, 59, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(30px);
-      border-radius: 28px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-      display: flex;
       overflow: hidden;
-      animation: fadeIn 1.2s ease-out forwards;
     }
 
-    /* -------------------------------- */
-    /*       LEFT BRANDING SIDE         */
-    /* -------------------------------- */
-    .left {
-      width: 50%;
-      padding: 24px;
-      position: relative;
-      background: linear-gradient(to bottom right, #0f172aef, #1e293bef);
-      border-right: 1px solid rgba(255, 255, 255, 0.06);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    body {
+      font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+      background: #fff;
+      color: #fff;
     }
 
-    .left .texture {
-      position: absolute;
-      inset: 0;
-      opacity: 0.08;
-      background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+    a {
+      text-decoration: none;
     }
 
-    .brand-line {
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 10;
-    }
-
-    /* Logo bars */
-    .bars {
-      display: flex;
-      gap: 4px;
-      align-items: flex-end;
-      height: 50px;
-    }
-
-    .bars div {
-      width: 8px;
-      border-radius: 2px;
-      background: #06b6d4;
-      animation: pulse 1.8s infinite ease-in-out;
-    }
-
-    .bars div:nth-child(1) {
-      height: 24px;
-      animation-delay: 0ms;
-    }
-
-    .bars div:nth-child(2) {
-      height: 40px;
-      animation-delay: 150ms;
-    }
-
-    .bars div:nth-child(3) {
-      height: 32px;
-      animation-delay: 300ms;
-    }
-
-    .bars div:nth-child(4) {
-      height: 48px;
-      animation-delay: 450ms;
-    }
-
-    @keyframes pulse {
+    /* ================================ */
+    /*         KEYFRAME ANIMATIONS      */
+    /* ================================ */
+    @keyframes sway {
 
       0%,
       100% {
-        opacity: 0.6;
-        transform: translateY(0);
+        transform: rotate(15deg) scale(1.1);
+        opacity: 0.4;
       }
 
       50% {
+        transform: rotate(25deg) scale(1);
         opacity: 1;
-        transform: translateY(-4px);
       }
     }
 
-    .left h1 {
-      font-size: 36px;
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
+    @keyframes sway-reverse {
 
-    .gradient-text {
-      background: linear-gradient(to right, #fff, #06b6d4);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: pulseSlow 3s infinite;
-    }
+      0%,
+      100% {
+        transform: rotate(35deg) scale(1);
+        opacity: 0.9;
+      }
 
-    @keyframes pulseSlow {
       50% {
-        opacity: 0.7;
+        transform: rotate(25deg) scale(1.1);
+        opacity: 0.3;
       }
     }
 
-    .left p.powered-by {
-      color: #94a3b8;
-      font-size: 18px;
-      border-left: 3px solid #06b6d4;
-      padding-left: 12px;
-      margin-bottom: 20px;
+    @keyframes sway-slow {
+
+      0%,
+      100% {
+        transform: rotate(45deg) scale(1.05);
+        opacity: 0.3;
+      }
+
+      50% {
+        transform: rotate(50deg) scale(1);
+        opacity: 0.8;
+      }
     }
 
-    /* Feature Cards */
-    .features-container {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      width: 100%;
-      max-width: 420px;
+    @keyframes float-droplet {
+
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(-30px) scale(1.05);
+      }
     }
 
-    .feature-card {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 12px 16px;
-      background: rgba(30, 41, 59, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      transition: all 0.3s ease;
-      cursor: default;
-      opacity: 0;
-      animation: slideUpFade 0.8s ease-out forwards;
+    @keyframes text-shimmer {
+      0% {
+        background-position: 0% center;
+      }
+
+      100% {
+        background-position: -200% center;
+      }
     }
 
-    .feature-card:nth-child(1) {
-      animation-delay: 0.2s;
+    @keyframes drop-oil {
+      0% {
+        transform: translateY(-20px) scaleY(1.2) scaleX(0.8);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 1;
+        transform: translateY(-10px) scaleY(1.1) scaleX(0.9);
+      }
+
+      60% {
+        transform: translateY(0px) scale(1);
+        opacity: 1;
+      }
+
+      80% {
+        transform: translateY(5px) scaleY(0.9) scaleX(1.1);
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: translateY(15px) scaleY(0.5) scaleX(1.5);
+        opacity: 0;
+      }
     }
 
-    .feature-card:nth-child(2) {
-      animation-delay: 0.4s;
+    @keyframes seed-fall {
+      0% {
+        transform: translateY(-30px);
+        opacity: 0;
+      }
+
+      15% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      20% {
+        transform: translateY(-4px);
+        opacity: 1;
+      }
+
+      25% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      85% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 0;
+      }
     }
 
     @keyframes slideUpFade {
@@ -282,414 +178,1064 @@
       }
     }
 
-    .feature-card:hover {
-      background: rgba(30, 41, 59, 0.6);
-      border-color: rgba(6, 182, 212, 0.3);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .icon-box {
-      width: 44px;
-      height: 44px;
-      background: rgba(6, 182, 212, 0.1);
-      border-radius: 10px;
+    /* ================================ */
+    /*          MAIN LAYOUT             */
+    /* ================================ */
+    .login-wrapper {
+      display: flex;
+      min-height: 100vh;
+      width: 100%;
+    }
+
+    /* ================================ */
+    /*        LEFT VISUAL PANE          */
+    /* ================================ */
+    .left-pane {
+      display: none;
+      width: 50%;
+      position: relative;
+      background: #18181b;
+      overflow: hidden;
+    }
+
+    .left-pane .bg-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+    }
+
+    /* Sun ray overlays */
+    .sun-ray {
+      position: absolute;
+      top: -20%;
+      right: -20%;
+      width: 150%;
+      height: 150%;
+      background: linear-gradient(to bottom left, rgba(255, 230, 150, 0.25) 0%, transparent 60%);
+      transform-origin: top right;
+      pointer-events: none;
+      filter: blur(40px);
+    }
+
+    .sun-ray-1 {
+      animation: sway 14s ease-in-out infinite;
+    }
+
+    .sun-ray-2 {
+      right: -10%;
+      background: linear-gradient(to bottom left, rgba(255, 210, 100, 0.2) 0%, transparent 70%);
+      animation: sway-reverse 17s ease-in-out infinite;
+    }
+
+    .sun-ray-3 {
+      right: 10%;
+      background: linear-gradient(to bottom left, rgba(255, 240, 180, 0.15) 0%, transparent 50%);
+      animation: sway-slow 22s ease-in-out infinite;
+    }
+
+    /* Dark gradient overlay from bottom */
+    .left-pane .gradient-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, #18181b 0%, rgba(24, 24, 27, 0.4) 40%, transparent 100%);
+    }
+
+    /* Left pane content */
+    .left-content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 48px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .left-logo img {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.3));
+    }
+
+    /* Tagline */
+    .tagline {
+      font-family: "Playfair Display", ui-serif, Georgia, serif;
+      font-size: 3rem;
+      line-height: 1.2;
+      margin-bottom: 40px;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+    }
+
+    .tagline-line {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .shimmer-text {
+      background: linear-gradient(to right, #E5B05C, #ffffff, #E5B05C);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: text-shimmer 2s linear infinite;
+    }
+
+    /* Seeds SVG animation */
+    .seeds-icon {
+      margin-left: 12px;
+    }
+
+    .seeds-icon g {
+      animation: seed-fall 4s ease-in-out infinite;
+    }
+
+    /* Oil droplet icon */
+    .oil-drop-icon {
+      margin-left: 12px;
+      color: #fef08a;
+      filter: drop-shadow(0 0 8px rgba(254, 240, 138, 0.6));
+      animation: drop-oil 2s ease-in infinite;
+    }
+
+    /* Feature cards */
+    .feature-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 420px;
+    }
+
+    .feature-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0;
+      animation: slideUpFade 0.8s ease-out forwards;
+    }
+
+    .feature-card:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .feature-card:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .feature-card:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    .feature-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px -10px rgba(229, 176, 92, 0.1);
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    .feature-card:active {
+      transform: scale(0.95);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(229, 176, 92, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #06b6d4;
+      color: #E5B05C;
       flex-shrink: 0;
+      transition: transform 0.3s;
     }
 
-    .icon-box svg {
-      width: 22px;
-      height: 22px;
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1);
+    }
+
+    .feature-icon svg {
+      width: 24px;
+      height: 24px;
       stroke: currentColor;
       stroke-width: 2;
       fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
-    .text-box h3 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 4px;
-      color: #f1f5f9;
+    .feature-text {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #fff;
     }
 
-    .text-box p {
-      font-size: 13px;
-      color: #94a3b8;
-      margin: 0;
-      padding: 0;
-      border: none;
-      line-height: 1.4;
-    }
-
-    /* -------------------------------- */
-    /*        RIGHT LOGIN FORM          */
-    /* -------------------------------- */
-    .right {
-      width: 50%;
-      padding: 40px;
+    /* ================================ */
+    /*        RIGHT LOGIN PANE          */
+    /* ================================ */
+    .right-pane {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
       position: relative;
-      background: rgba(15, 23, 42, 0.55);
+      background: rgba(17, 42, 42, 0.95);
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Mobile background image */
+    .mobile-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .mobile-bg img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.3;
+      mix-blend-mode: overlay;
+    }
+
+    .mobile-bg .mobile-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(17, 42, 42, 0.8);
+      backdrop-filter: blur(2px);
+    }
+
+    /* Decorative oil droplets */
+    .decorative-droplets {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .decor-drop {
+      position: absolute;
+      color: #E5B05C;
+      fill: currentColor;
+    }
+
+    .decor-drop-1 {
+      top: 15%;
+      left: 10%;
+      width: 64px;
+      height: 64px;
+      filter: blur(2px);
+      opacity: 0.2;
+      animation: float-droplet 8s infinite ease-in-out;
+    }
+
+    .decor-drop-2 {
+      bottom: 25%;
+      right: 10%;
+      width: 96px;
+      height: 96px;
+      filter: blur(4px);
+      opacity: 0.1;
+      animation: float-droplet 12s infinite ease-in-out 2s;
+    }
+
+    .decor-drop-3 {
+      top: 45%;
+      right: 15%;
+      width: 40px;
+      height: 40px;
+      filter: blur(1px);
+      opacity: 0.3;
+      animation: float-droplet 10s infinite ease-in-out 4s;
+    }
+
+    .decor-drop-4 {
+      bottom: 15%;
+      left: 20%;
+      width: 80px;
+      height: 80px;
+      filter: blur(3px);
+      opacity: 0.15;
+      animation: float-droplet 14s infinite ease-in-out 1s;
+    }
+
+    /* Interactive particles canvas */
+    .particle-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(1px);
+    }
+
+    /* Form area */
+    .form-area {
+      flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
+      padding: 32px 24px;
+      position: relative;
+      z-index: 10;
+      width: 100%;
     }
 
-    /* Inputs */
-    .input-group {
+    .form-container {
+      width: 100%;
+      max-width: 420px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    /* Mobile logo  */
+    .mobile-logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .mobile-logo img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3));
+    }
+
+    /* Headings */
+    .form-heading {
+      font-size: 1.875rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.025em;
       margin-bottom: 12px;
     }
 
-    label {
+    .form-subheading {
+      color: rgba(204, 234, 227, 0.7);
+      font-size: 1rem;
+      margin-bottom: 40px;
+    }
+
+    /* Error / Success messages */
+    #login-message {
+      display: none;
+      margin-bottom: 16px;
+      padding: 12px;
+      border-radius: 12px;
       font-size: 14px;
-      color: #cbd5e1;
-      margin-bottom: 6px;
+      text-align: center;
+    }
+
+    /* Input groups */
+    .input-group {
+      margin-bottom: 24px;
+    }
+
+    .input-group label {
       display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(240, 253, 250, 0.9);
+      margin-bottom: 8px;
     }
 
-    .input-box {
+    .label-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .forgot-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #E5B05C;
+      transition: color 0.2s;
+    }
+
+    .forgot-link:hover {
+      color: #d4a04c;
+    }
+
+    .input-wrapper {
       position: relative;
-      background: rgba(30, 41, 59, 0.6);
-      border: 1px solid rgba(100, 116, 139, 0.4);
-      border-radius: 10px;
-      padding: 14px 16px;
-      color: white;
-      transition: .3s;
-    }
-
-    .input-box:hover {
-      background: rgba(30, 41, 59, 0.8);
-    }
-
-    .input-box:focus-within {
-      border-color: #06b6d4;
-      box-shadow: 0 0 20px rgba(6, 182, 212, 0.25);
-    }
-
-    .input-box input {
-      width: 100%;
-      background: none;
-      border: none;
-      outline: none;
-      color: white;
-      font-size: 15px;
     }
 
     .input-icon {
       position: absolute;
-      left: 12px;
+      left: 14px;
       top: 50%;
       transform: translateY(-50%);
-      color: #94a3b8;
-      font-size: 18px;
-    }
-
-    /* Remember Me & Forgot Password */
-    .form-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: -10px;
-      margin-bottom: 16px;
-    }
-
-    .remember-me {
+      color: rgba(204, 234, 227, 0.4);
       display: flex;
       align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      font-size: 13px;
-      color: #cbd5e1;
+      pointer-events: none;
     }
 
-    .remember-me input {
-      accent-color: #06b6d4;
-      width: 16px;
-      height: 16px;
-      cursor: pointer;
+    .input-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
-    .forgot {
-      font-size: 13px;
-      color: #06b6d4;
-      text-decoration: none;
-      transition: .2s;
-    }
-
-    .forgot:hover {
-      color: #22d3ee;
-      text-decoration: underline;
-    }
-
-    /* LOGIN BUTTON */
-    button {
+    .input-field {
       width: 100%;
-      padding: 12px;
+      padding: 14px 16px 14px 44px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 12px;
-      font-weight: 600;
-      font-size: 18px;
-      color: white;
-      background: #06b6d4;
-      border: none;
-      cursor: pointer;
-      transition: .3s;
-      margin-top: 0;
+      color: #fff;
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s;
     }
 
-    button:hover {
-      background: #0ea5b9;
+    .input-field::placeholder {
+      color: rgba(204, 234, 227, 0.4);
     }
 
-    button:disabled {
-      opacity: 0.5;
+    .input-field:focus {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #E5B05C;
+      box-shadow: 0 0 0 3px rgba(229, 176, 92, 0.2);
+    }
+
+    .input-field:disabled {
+      opacity: 0.6;
       cursor: not-allowed;
     }
 
-    /* Responsive Design */
-    @media (max-width: 900px) {
-      .login-card {
-        flex-direction: column;
-        height: auto;
-        min-height: auto;
+    .password-input {
+      padding-right: 44px;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: rgba(204, 234, 227, 0.4);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      transition: color 0.2s;
+    }
+
+    .toggle-password:hover {
+      color: rgba(204, 234, 227, 1);
+    }
+
+    .toggle-password svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Submit button */
+    .submit-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 16px;
+      background: #E5B05C;
+      color: #112A2A;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 10px 30px -5px rgba(229, 176, 92, 0.2);
+      margin-top: 8px;
+    }
+
+    .submit-btn:hover {
+      background: #d4a04c;
+    }
+
+    .submit-btn:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(229, 176, 92, 0.4);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.8;
+      cursor: not-allowed;
+    }
+
+    .submit-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Spinner */
+    .spinner {
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
       }
 
-      .left,
-      .right {
-        width: 100%;
-        padding: 40px 30px;
-      }
-
-      .left {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      }
-
-      .left h1 {
-        font-size: 42px;
-      }
-
-      .brand-line {
-        margin-bottom: 30px;
-      }
-
-      .brand-line img {
-        height: 48px !important;
-      }
-
-      .brand-line span {
-        font-size: 22px !important;
-      }
-
-      .brand-line img:last-child {
-        height: 32px !important;
+      to {
+        transform: rotate(360deg);
       }
     }
 
+    /* Footer branding */
+    .branding-footer {
+      position: relative;
+      z-index: 10;
+      padding: 24px 0 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .powered-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.875rem;
+      color: rgba(204, 234, 227, 0.4);
+    }
+
+    .nexo-logo svg {
+      height: 24px;
+      color: #fff;
+    }
+
+    .licensed-text {
+      font-size: 0.75rem;
+      background: linear-gradient(to right, rgba(229, 176, 92, 0.7), #fef08a, rgba(229, 176, 92, 0.7));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: text-shimmer 3s linear infinite;
+    }
+
+    /* ================================ */
+    /*        RESPONSIVE (DESKTOP)      */
+    /* ================================ */
+    @media (min-width: 1024px) {
+      .left-pane {
+        display: flex;
+      }
+
+      .right-pane {
+        width: 50%;
+        background: #112A2A;
+      }
+
+      .mobile-bg {
+        display: none;
+      }
+
+      .mobile-logo {
+        display: none;
+      }
+
+      .form-area {
+        padding: 48px 96px;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .tagline {
+        font-size: 3.2rem;
+      }
+    }
+
+    /* Small screens */
     @media (max-width: 480px) {
-
-      .left,
-      .right {
-        padding: 30px 20px;
+      .form-area {
+        padding: 24px 20px;
       }
 
-      .left h1 {
-        font-size: 32px;
+      .form-heading {
+        font-size: 1.5rem;
       }
 
-      .feature-card {
-        padding: 12px 16px;
+      .mobile-logo img {
+        width: 100px;
+        height: 100px;
       }
     }
   </style>
-
 </head>
 
 <body>
+  <div class="login-wrapper">
 
-  <!-- Background Gradient + Canvas -->
-  <div class="bg-wrapper">
-    <canvas id="bgCanvas"></canvas>
-  </div>
+    <!-- ======================== -->
+    <!--     LEFT VISUAL PANE     -->
+    <!-- ======================== -->
+    <div class="left-pane">
+      <!-- Background Image -->
+      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80"
+        alt="Golden agriculture field" class="bg-image" />
 
-  <!-- Orbs -->
-  <div class="orb one" id="orb1"></div>
-  <div class="orb two" id="orb2"></div>
-
-  <!-- MAIN LOGIN CARD -->
-  <div class="login-card center fade-in">
-
-    <!-- LEFT SIDE -->
-    <div class="left">
-      <div class="texture"></div>
-
-      <div class="brand-line">
-        <img src="/assets/whitelabel/images/vital logo.png" alt="Vital Petroleum" style="height: 64px; width: auto;">
+      <!-- Animated Sun Rays -->
+      <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none;mix-blend-mode:screen;">
+        <div class="sun-ray sun-ray-1"></div>
+        <div class="sun-ray sun-ray-2"></div>
+        <div class="sun-ray sun-ray-3"></div>
       </div>
 
-      <h1>Fueling <br>
-        <span class="gradient-text">Tomorrow</span>
-      </h1>
+      <!-- Dark gradient overlay -->
+      <div class="gradient-overlay"></div>
 
-      <p class="powered-by">Powered by <strong style="color:#67e8f9;">NEXO 4 ERP</strong>.</p>
-
-      <!-- Feature Cards -->
-      <div class="features-container">
-        <!-- Card 1 -->
-        <div class="feature-card">
-          <div class="icon-box">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="18" y1="20" x2="18" y2="10"></line>
-              <line x1="12" y1="20" x2="12" y2="4"></line>
-              <line x1="6" y1="20" x2="6" y2="14"></line>
-            </svg>
-          </div>
-          <div class="text-box">
-            <h3>Real-time Analytics</h3>
-            <p>Live downstream production data</p>
-          </div>
+      <!-- Left content -->
+      <div class="left-content">
+        <!-- Logo -->
+        <div class="left-logo">
+          <img src="/assets/whitelabel/images/lalkhan_logo.png" alt="Lal Khan Oil Mills Logo" />
         </div>
 
-        <!-- Card 2 -->
-        <div class="feature-card">
-          <div class="icon-box">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-          </div>
-          <div class="text-box">
-            <h3>Secure Portal</h3>
-            <p>Enterprise-grade security standards</p>
+        <!-- Tagline + Feature Cards -->
+        <div style="max-width: 540px; margin-bottom: 32px;">
+          <h1 class="tagline">
+            <div class="tagline-line">
+              <span class="shimmer-text">From Seeds</span>
+              <!-- Animated Seeds SVG -->
+              <span class="seeds-icon">
+                <svg viewBox="0 0 32 32" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  style="overflow:visible;">
+                  <g style="animation: seed-fall 4s ease-in-out infinite 0s;">
+                    <circle cx="8" cy="24" r="2.5" fill="#d4a04c" />
+                    <circle cx="7.5" cy="23.5" r="0.5" fill="#fef08a" />
+                  </g>
+                  <g style="animation: seed-fall 4s ease-in-out infinite 0.5s;">
+                    <circle cx="14" cy="26" r="3" fill="#E5B05C" />
+                    <circle cx="13.5" cy="25.5" r="0.75" fill="#fef08a" />
+                  </g>
+                  <g style="animation: seed-fall 4s ease-in-out infinite 1s;">
+                    <circle cx="20" cy="23" r="2" fill="#b48030" />
+                    <circle cx="19.5" cy="22.5" r="0.5" fill="#fef08a" />
+                  </g>
+                  <g style="animation: seed-fall 4s ease-in-out infinite 1.5s;">
+                    <circle cx="10" cy="28" r="2.2" fill="#d4a04c" />
+                    <circle cx="9.5" cy="27.5" r="0.5" fill="#fef08a" />
+                  </g>
+                  <g style="animation: seed-fall 4s ease-in-out infinite 0.8s;">
+                    <circle cx="24" cy="27" r="2.8" fill="#E5B05C" />
+                    <circle cx="23.5" cy="26.5" r="0.6" fill="#fef08a" />
+                  </g>
+                  <g style="animation: seed-fall 4s ease-in-out infinite 2s;">
+                    <circle cx="17" cy="28" r="2.5" fill="#b48030" />
+                    <circle cx="16.5" cy="27.5" r="0.5" fill="#fef08a" />
+                  </g>
+                  <g style="animation: seed-fall 4s ease-in-out infinite 0.3s;">
+                    <circle cx="28" cy="25" r="2" fill="#d4a04c" />
+                    <circle cx="27.5" cy="24.5" r="0.4" fill="#fef08a" />
+                  </g>
+                  <g style="animation: seed-fall 4s ease-in-out infinite 1.2s;">
+                    <circle cx="4" cy="26" r="2.3" fill="#E5B05C" />
+                    <circle cx="3.5" cy="25.5" r="0.5" fill="#fef08a" />
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <div class="tagline-line">
+              <span class="shimmer-text">To Refined Oil</span>
+              <!-- Oil Droplet Icon -->
+              <span class="oil-drop-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                  stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                </svg>
+              </span>
+            </div>
+          </h1>
+
+          <!-- Feature Cards -->
+          <div class="feature-cards">
+            <!-- Card 1: Manage inventory -->
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M16.5 9.4l-9-5.19M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                  </path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+              </div>
+              <span class="feature-text">Manage inventory</span>
+            </div>
+
+            <!-- Card 2: Oversee production lines -->
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path>
+                </svg>
+              </div>
+              <span class="feature-text">Oversee production lines</span>
+            </div>
+
+            <!-- Card 3: Track distribution -->
+            <div class="feature-card">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M1 3h15v13H1z"></path>
+                  <path d="M16 8h4l3 3v5h-7V8z"></path>
+                  <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                  <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                </svg>
+              </div>
+              <span class="feature-text">Track distribution in real-time</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- RIGHT SIDE -->
-    <div class="right">
+    <!-- ======================== -->
+    <!--     RIGHT LOGIN PANE     -->
+    <!-- ======================== -->
+    <div class="right-pane">
 
-      <h2 style="font-size:28px;font-weight:700;margin-bottom:10px;">Welcome back</h2>
-      <p style="color:#94a3b8;margin-bottom:20px;">Please authenticate to access the VITAL Petroleum portal.</p>
+      <!-- Mobile Background Image (visible only on mobile) -->
+      <div class="mobile-bg">
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80"
+          alt="Golden agriculture field" />
+        <div class="mobile-bg-overlay"></div>
+      </div>
 
-      <form id="login_form" method="POST" action="/api/method/login" novalidate>
-        <div id="login-message"
-          style="display:none; margin-bottom: 15px; padding: 10px; border-radius: 8px; font-size: 14px; text-align: center;">
-        </div>
-        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
-        <!-- EMAIL -->
-        <div class="input-group">
-          <label for="login_email">Username / Email</label>
-          <div class="input-box">
-            <input type="text" name="usr" placeholder="user@nexo4erp.com" required id="login_email">
+      <!-- Decorative Oil Droplets -->
+      <div class="decorative-droplets">
+        <svg class="decor-drop decor-drop-1" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+          stroke-width="0.5">
+          <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+        </svg>
+        <svg class="decor-drop decor-drop-2" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+          stroke-width="0.5">
+          <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+        </svg>
+        <svg class="decor-drop decor-drop-3" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+          stroke-width="0.5">
+          <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+        </svg>
+        <svg class="decor-drop decor-drop-4" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+          stroke-width="0.5">
+          <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+        </svg>
+      </div>
+
+      <!-- Interactive Particles Canvas -->
+      <canvas id="particleCanvas" class="particle-canvas"></canvas>
+
+      <!-- Form Area -->
+      <div class="form-area">
+        <div class="form-container">
+
+          <!-- Mobile Logo -->
+          <div class="mobile-logo">
+            <img src="/assets/whitelabel/images/lalkhan_logo.png" alt="Lal Khan Oil Mills Logo" />
           </div>
+
+          <!-- Heading -->
+          <h2 class="form-heading">Welcome back</h2>
+          <p class="form-subheading">Please enter your credentials to access the ERP portal.</p>
+
+          <!-- Login Form -->
+          <form id="login_form" method="POST" action="/api/method/login" novalidate>
+            <div id="login-message"></div>
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+
+            <!-- Email -->
+            <div class="input-group">
+              <label for="login_email">Work Email</label>
+              <div class="input-wrapper">
+                <div class="input-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <input type="email" name="usr" id="login_email" class="input-field" placeholder="name@lalkhanoil.com"
+                  required />
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="input-group">
+              <div class="label-row">
+                <label for="login_password">Password</label>
+                <a href="/forgot-password" class="forgot-link">Forgot password?</a>
+              </div>
+              <div class="input-wrapper">
+                <div class="input-icon">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                </div>
+                <input type="password" name="pwd" id="login_password" class="input-field password-input"
+                  placeholder="••••••••" required />
+                <button type="button" class="toggle-password" id="toggle-password" tabindex="-1">
+                  <!-- Eye icon (show) -->
+                  <svg id="eye-open" viewBox="0 0 24 24">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  <!-- EyeOff icon (hidden by default) -->
+                  <svg id="eye-closed" viewBox="0 0 24 24" style="display:none;">
+                    <path
+                      d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                    </path>
+                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div style="padding-top: 8px;">
+              <button type="submit" class="submit-btn" id="login-btn">
+                <span id="btn-text">Sign In to ERP</span>
+                <svg id="btn-arrow" viewBox="0 0 24 24">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+                <svg id="btn-spinner" class="spinner" viewBox="0 0 24 24" style="display:none;">
+                  <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+                </svg>
+              </button>
+            </div>
+          </form>
+
         </div>
+      </div>
 
-        <!-- PASSWORD -->
-        <div class="input-group">
-          <label for="login_password">Password</label>
-          <div class="input-box">
-            <input type="password" placeholder="••••••••••••" required name="pwd" id="login_password">
-          </div>
+      <!-- Branding Footer -->
+      <div class="branding-footer">
+        <div class="powered-row">
+          <span>Powered by</span>
+          <span class="nexo-logo">
+            <svg viewBox="0 0 250 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="40" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="26"
+                fill="currentColor" letter-spacing="0.15em">NEXO</text>
+              <g fill="#45818e" transform="translate(95, 2)">
+                <polygon points="0,20 12,13 12,45 0,45" />
+                <polygon points="18,5 30,-2 30,55 18,55" />
+                <polygon points="36,12 48,5 48,50 36,50" />
+                <polygon points="54,8 66,1 66,38 54,38" />
+              </g>
+              <text x="175" y="40" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="26"
+                fill="currentColor" letter-spacing="0.15em">ERP</text>
+            </svg>
+          </span>
         </div>
-
-        <div class="form-footer">
-          <label class="remember-me">
-            <input type="checkbox">
-            <span>Remember me</span>
-          </label>
-          <a class="forgot" href="#">Forgot password?</a>
-        </div>
-
-        <button type="submit" id="login-btn">Login →</button>
-      </form>
-
-      <p style="color:#94a3b8;margin-top:40px;">© 2025 NEXO 4 ERP. Licensed to Vital Petroleum.</p>
+        <span class="licensed-text">Licensed to Lal Khan Oil Mills</span>
+      </div>
 
     </div>
   </div>
 
+  <!-- ================================ -->
+  <!--    INTERACTIVE PARTICLES (JS)    -->
+  <!-- ================================ -->
   <script>
-    /* Fade in ORBs */
-    setTimeout(() => {
-      document.getElementById("orb1").classList.add("show");
-      document.getElementById("orb2").classList.add("show");
-    }, 200);
+    (function () {
+      const canvas = document.getElementById('particleCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
 
-    /* BG PARTICLE CANVAS - Same as your TSX version (converted) */
-    const canvas = document.getElementById("bgCanvas");
-    const ctx = canvas.getContext("2d");
-    let w = canvas.width = innerWidth;
-    let h = canvas.height = innerHeight;
+      let particles = [];
+      let mouse = { x: -1000, y: -1000 };
+      let animationFrameId;
 
-    const colors = [
-      "rgba(6,182,212,0.5)",
-      "rgba(34,211,238,0.3)",
-      "rgba(255,255,255,0.15)"
-    ];
-
-    const particles = []; const count = 80; const distMax = 180;
-
-    class P {
-      constructor() {
-        this.x = Math.random() * w;
-        this.y = Math.random() * h;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.size = Math.random() * 2 + 1;
-        this.color = colors[Math.floor(Math.random() * colors.length)];
+      function resize() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+        initParticles();
       }
-      update() {
-        this.x += this.vx; this.y += this.vy;
-        if (this.x < 0 || this.x > w) this.vx *= -1;
-        if (this.y < 0 || this.y > h) this.vy *= -1;
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.fill();
-      }
-    }
 
-    for (let i = 0; i < count; i++) particles.push(new P());
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 3 + 1;
+          this.density = (Math.random() * 20) + 5;
+          this.speedY = Math.random() * -0.5 - 0.2;
+          this.speedX = Math.random() * 0.4 - 0.2;
+          this.opacity = Math.random() * 0.5 + 0.1;
+        }
 
-    function animate() {
-      ctx.clearRect(0, 0, w, h);
-      for (let i = 0; i < count; i++) {
-        const p1 = particles[i];
-        p1.update(); p1.draw();
-        for (let j = i + 1; j < count; j++) {
-          const p2 = particles[j];
-          const dx = p1.x - p2.x, dy = p1.y - p2.y;
-          const d = Math.sqrt(dx * dx + dy * dy);
-          if (d < distMax) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(148,163,184,${0.1 * (1 - d / distMax)})`;
-            ctx.lineWidth = 0.5;
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.stroke();
+        update() {
+          this.y += this.speedY;
+          this.x += this.speedX;
+
+          if (this.y < -10) {
+            this.y = canvas.height + 10;
+            this.x = Math.random() * canvas.width;
+          }
+          if (this.x < -10) this.x = canvas.width + 10;
+          if (this.x > canvas.width + 10) this.x = -10;
+
+          let dx = mouse.x - this.x;
+          let dy = mouse.y - this.y;
+          let distance = Math.sqrt(dx * dx + dy * dy);
+          let maxDistance = 120;
+          if (distance < maxDistance) {
+            let force = (maxDistance - distance) / maxDistance;
+            let dirX = (dx / distance) * force * this.density;
+            let dirY = (dy / distance) * force * this.density;
+            this.x -= dirX;
+            this.y -= dirY;
           }
         }
-      }
-      requestAnimationFrame(animate);
-    }
-    animate();
 
-    addEventListener("resize", () => {
-      w = canvas.width = innerWidth;
-      h = canvas.height = innerHeight;
-    });
+        draw() {
+          ctx.fillStyle = `rgba(229, 176, 92, ${this.opacity})`;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.closePath();
+          ctx.fill();
+        }
+      }
+
+      function initParticles() {
+        particles = [];
+        const count = Math.floor((canvas.width * canvas.height) / 8000);
+        for (let i = 0; i < count; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+        }
+        animationFrameId = requestAnimationFrame(animate);
+      }
+
+      function handleMouseMove(e) {
+        const rect = canvas.getBoundingClientRect();
+        if (
+          e.clientX >= rect.left &&
+          e.clientX <= rect.right &&
+          e.clientY >= rect.top &&
+          e.clientY <= rect.bottom
+        ) {
+          mouse.x = e.clientX - rect.left;
+          mouse.y = e.clientY - rect.top;
+        } else {
+          mouse.x = -1000;
+          mouse.y = -1000;
+        }
+      }
+
+      function handleMouseLeave() {
+        mouse.x = -1000;
+        mouse.y = -1000;
+      }
+
+      window.addEventListener('resize', resize);
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseout', handleMouseLeave);
+
+      resize();
+      animate();
+    })();
   </script>
 
+  <!-- ================================ -->
+  <!--     TOGGLE PASSWORD VISIBILITY   -->
+  <!-- ================================ -->
+  <script>
+    (function () {
+      const toggleBtn = document.getElementById('toggle-password');
+      const pwdInput = document.getElementById('login_password');
+      const eyeOpen = document.getElementById('eye-open');
+      const eyeClosed = document.getElementById('eye-closed');
+
+      if (toggleBtn && pwdInput) {
+        toggleBtn.addEventListener('click', function () {
+          if (pwdInput.type === 'password') {
+            pwdInput.type = 'text';
+            eyeOpen.style.display = 'none';
+            eyeClosed.style.display = 'block';
+          } else {
+            pwdInput.type = 'password';
+            eyeOpen.style.display = 'block';
+            eyeClosed.style.display = 'none';
+          }
+        });
+      }
+    })();
+  </script>
+
+  <!-- ================================ -->
+  <!--        LOGIN FORM HANDLER        -->
+  <!-- ================================ -->
   <script>
     (function () {
       const form = document.getElementById('login_form');
       const btn = document.getElementById('login-btn');
+      const btnText = document.getElementById('btn-text');
+      const btnArrow = document.getElementById('btn-arrow');
+      const btnSpinner = document.getElementById('btn-spinner');
       const msg = document.getElementById('login-message');
-      const originalBtnText = btn.innerText;
+      const originalBtnText = btnText.innerText;
 
       function setMessage(type, text) {
         msg.style.display = 'block';
@@ -715,11 +1261,23 @@
         return params.get('redirect-to') || '/app';
       }
 
+      function setLoading(loading) {
+        btn.disabled = loading;
+        if (loading) {
+          btnText.innerText = 'Signing In...';
+          btnArrow.style.display = 'none';
+          btnSpinner.style.display = 'block';
+        } else {
+          btnText.innerText = originalBtnText;
+          btnArrow.style.display = 'block';
+          btnSpinner.style.display = 'none';
+        }
+      }
+
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
         clearMessage();
-        btn.disabled = true;
-        btn.innerText = "Signing in...";
+        setLoading(true);
 
         try {
           const fd = new FormData(form);
@@ -738,13 +1296,11 @@
             let err = (data && (data.message || data.exc)) || 'Invalid credentials';
             if (typeof err === 'string' && err.startsWith('Traceback')) err = 'Login failed';
             setMessage('error', err);
-            btn.disabled = false;
-            btn.innerText = originalBtnText;
+            setLoading(false);
           }
         } catch (ex) {
           setMessage('error', 'Network error. Please try again.');
-          btn.disabled = false;
-          btn.innerText = originalBtnText;
+          setLoading(false);
         }
       });
     })();
